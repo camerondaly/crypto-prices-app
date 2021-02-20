@@ -1,12 +1,12 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
 
-const AssetRow =({ name, image, symbol, price, priceChange }) => {
+const AssetRow = ({ name, image, symbol, price, priceChange }) => {
     return (
       <View style={styles.container}>
         <View style={styles.left}>
           <Text >{name}</Text>
-          <Image source={image}/>
+          <Image style={styles.asseticon} source={{ uri: image}} />
           <Text>{symbol}</Text>
         </View>
         <View style={styles.right}>
@@ -36,4 +36,8 @@ const styles = StyleSheet.create({
   right: {
     justifyContent: 'flex-end',
   },
+  asseticon: {
+    width: 50,
+    height: 50,
+  }
 })
