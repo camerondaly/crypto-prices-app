@@ -65,8 +65,10 @@ export default function App() {
             name={asset.name}
             image={asset.image}
             symbol={asset.symbol}
+            marketCap={asset.market_cap}
             price={asset.current_price}
             priceChange={asset.price_change_percentage_24h}
+            volume={asset.total_volume}
             />
           )
         })}
@@ -80,8 +82,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#242526',
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
   searchbar: {
     marginTop: 10,
