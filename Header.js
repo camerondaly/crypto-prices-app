@@ -6,7 +6,8 @@ const Header = () => {
   return(
     <View style={styles.container}>
       <LinearGradient
-        colors={['#00245B', '#00194A', '#000E39']}
+        colors={['#42275a', '#734b6d']}
+        start={{ x: 0, y: 1 }}
         style={styles.headertext}
       >
         <Text style={styles.headertext}>
@@ -21,14 +22,12 @@ export default Header;
 
 const styles = StyleSheet.create({
   container: {
-    borderBottomEndRadius: 90,
-    overflow: 'hidden',
-    height: 70,
+    height: 69,
   },
   headertext: {
     textAlign: 'center',
     fontSize: 20,
     padding: 15,
-    color: '#fff',
+    color: '#e4e6eb',
   },
 })
