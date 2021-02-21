@@ -1,24 +1,27 @@
 import React from 'react';
+import { Pressable } from 'react-native';
 import { Text, View, StyleSheet, Image } from 'react-native';
 
 const AssetRow = ({ name, image, symbol, price, priceChange }) => {
     return (
-      <View style={styles.container}>
-        <View style={styles.left}>
-          <Image style={styles.asseticon} source={{ uri: image}} />
-          <Text style={styles.text}>{name} - {symbol}</Text>
+      <Pressable>
+        <View style={styles.container}>
+          <View style={styles.left}>
+            <Image style={styles.asseticon} source={{ uri: image}} />
+            <Text style={styles.text}>{name.replace('Token', '')} - {symbol.toUpperCase()}</Text>
+          </View>
+          <View style={styles.right}>
+            <Text style={styles.text}>${price.toLocaleString()}</Text>
+            {priceChange < 0 ? (
+                <Text style={styles.redtext}>{priceChange.toFixed(2)}%</Text>
+              ) : (
+                <Text style={styles.greentext}>{priceChange.toFixed(2)}%</Text>
+              )
+            }
+          </View>
         </View>
-        <View style={styles.right}>
-          <Text style={styles.text}>${price.toLocaleString(undefined, {'minimumFractionDigits':2})}</Text>
-          {priceChange < 0 ? (
-              <Text style={styles.redtext}>{priceChange.toFixed(2)}%</Text>
-            ) : (
-              <Text style={styles.greentext}>{priceChange.toFixed(2)}%</Text>
-            )
-          }
-        </View>
-      </View>
-    )
+      </Pressable>
+    ) 
 }
 
 export default AssetRow
@@ -58,14 +61,14 @@ const styles = StyleSheet.create({
   redtext: {
     fontSize: 16,
     padding: 10,
-    backgroundColor: '#DD2F2F',
+    backgroundColor: 'rgb(255,80,0)',
     borderRadius: 20,
     overflow: 'hidden',
   },
   greentext: {
     fontSize: 16,
     padding: 10,
-    backgroundColor: '#05B858',
+    backgroundColor: 'rgb(0,200,5)',
     borderRadius: 20,
     overflow: 'hidden',
   },

@@ -11,7 +11,7 @@ const Header = () => {
         style={styles.headertext}
       >
         <Text style={styles.headertext}>
-          Live Crypto Prices
+          Crypto Prices
         </Text>
       </LinearGradient>
     </View>

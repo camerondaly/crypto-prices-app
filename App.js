@@ -1,11 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, View, Text, StatusBar } from 'react-native';
+import { StyleSheet, View, StatusBar, ScrollView, TextInput, RefreshControl } from 'react-native';
 import axios from 'axios';
 import AssetRow from './AssetRow.js';
 import Header from './Header.js';
-import { ScrollView } from 'react-native';
-import { TextInput } from 'react-native';
-import { RefreshControl } from 'react-native';
 
 export default function App() {
   const [assets, setAssets] = useState([]);
@@ -26,14 +23,6 @@ export default function App() {
   const onRefresh = React.useCallback(() => {
     APIGet()
   })
-  /*
-  useEffect(() => {
-    axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
-    .then(res => {
-      setAssets(res.data);
-    }).catch(error => alert('Error occurred fetching data from coingecko API.'));
-  }, []);
-  */
 
   const handleChange = (text) => {
     setSearch(text)
@@ -43,7 +32,6 @@ export default function App() {
     asset.name.toLowerCase().includes(search.toString().toLowerCase())
   )
 
-  
 
   return (
     <View style={styles.container}>
@@ -56,11 +44,11 @@ export default function App() {
             onRefresh={onRefresh}
           />
         }
-      >
+        >
         <TextInput 
           type="text"
           style={styles.searchbar}
-          placeholder="Search:"
+          placeholder="Search assets..."
           placeholderTextColor='#b3b3b3'
           color='#e4e6eb'
           textAlign="center"
@@ -83,7 +71,6 @@ export default function App() {
           )
         })}
       </ScrollView>
-      
     </View>
   );
 }
