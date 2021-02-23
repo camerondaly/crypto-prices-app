@@ -1,2 +1,2 @@
 # crypto-prices-app
-Cross-platform cryptocurrency-info app made with Expo and React Native.
+Cross-platform cryptocurrency information app made with Expo and React Native.
